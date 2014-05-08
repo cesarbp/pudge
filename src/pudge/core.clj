@@ -36,7 +36,9 @@ For a full example of an index.html file refer to the README.
   (let [repl-env (reset! cemerick.austin.repls/browser-repl-env
                          (cemerick.austin/repl-env))
         app (-> (make-handler html-path script-key
-                              (cemerick.austin.repls/browser-connected-repl-js))
+                              (str "<script type=\"text/javascript\">"
+                                   (cemerick.austin.repls/browser-connected-repl-js)
+                                   "</script>"))
                 (middleware/wrap-content-type))]
     (http/run-server app {:port port})
     (cemerick.austin.repl/cljs-repl repl-env)))
