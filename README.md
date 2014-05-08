@@ -24,6 +24,7 @@ somewhere in index.html:
 In your REPL:
 ```
 user> (require '[pudge.core :refer [start-repl!]])
+user> (start-repl!)
 ;; Then point to localhost:8000
 cljs.user> (js/alert "Hello World")
 ```
