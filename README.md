@@ -15,7 +15,7 @@ project.clj:
 ```clojure
 :profiles {:dev {:dependencies [pudge "FIXME"]}}
 ```
-somewhere in index.html:
+somewhere in index.html, where index.html is a file in your classpath:
 ```html
 <script src="/goog/base.js"></script>
 <script src="my-app.js"></script>
