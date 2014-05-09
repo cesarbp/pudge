@@ -30,7 +30,7 @@ Not using the pudge-app template:
 project.clj:
 ```clojure
 :dependencies [[org.clojure/clojurescript "0.0-2197"]]
-:profiles {:dev {:dependencies [pudge "FIXME"]}}
+:profiles {:dev {:dependencies [org.clojars.cbp/pudge "0.1.0"]}}
 ```
 somewhere in index.html, where index.html is a file in your classpath, note that
 `goog/base.js` and `my-app.js` also have to be in your classpath:
