@@ -51,7 +51,6 @@ user> (start-repl!)
 ;; Then point to localhost:8000
 cljs.user> (js/alert "Hello World")
 ```
-```
 
 ## License
 
