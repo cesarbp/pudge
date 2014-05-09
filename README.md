@@ -43,7 +43,7 @@ In your core.cljs file
 ```clojure
 (ns my-project.core
   (:require [clojure.browser.repl]))
-
+```
 In your REPL:
 ```clojure
 user> (require '[pudge.core :refer [start-repl!]])
