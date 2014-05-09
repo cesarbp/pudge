@@ -10,8 +10,24 @@ single HTML file and whatever static files and turns your clojure REPL into a
 clojurescript REPL.
 
 ## Usage
-project.clj:
 
+Using the pudge-app template (note that this template gets you started with Om):
+From a terminal:
+```bash
+$ lein new pudge-app hello-world
+$ cd hello-world
+$ lein cljsbuild once
+$ lein repl
+user> (require '[pudge.core :as p])
+user> (p/start-repl! {:port 8000}) ; the map is optional, defaults to port 8000
+;; Point your browser to localhost:8000
+cljs.user> (js/alert "Hello World")
+```
+
+--
+Not using the pudge-app template:
+
+project.clj:
 ```clojure
 :dependencies [[org.clojure/clojurescript "0.0-2197"]]
 :profiles {:dev {:dependencies [pudge "FIXME"]}}
