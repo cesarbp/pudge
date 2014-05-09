@@ -31,8 +31,8 @@ The HTML should then contain something like: {{ connection-script|safe }}
 
 For a full example of an index.html file refer to the README.
 "
-  [{:keys [port html-path script-key]
-    :or {port 8000 html-path "index.html" script-key :connection-script}}]
+  [& [{:keys [port html-path script-key]
+       :or {port 8000 html-path "index.html" script-key :connection-script}}]]
   (let [repl-env (reset! cemerick.austin.repls/browser-repl-env
                          (cemerick.austin/repl-env))
         app (-> (make-handler html-path script-key
@@ -41,7 +41,7 @@ For a full example of an index.html file refer to the README.
                                    "</script>"))
                 (middleware/wrap-content-type))]
     (http/run-server app {:port port})
-    (cemerick.austin.repl/cljs-repl repl-env)))
+    (cemerick.austin.repls/cljs-repl repl-env)))
 
 (defn make-handler
   "Serve the html file on root. Everything else is treated as an static file.

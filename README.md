@@ -9,24 +9,32 @@ single-page clojurescript apps. It provides the webserver that serves your
 single HTML file and whatever static files and turns your clojure REPL into a
 clojurescript REPL.
 
-## Quickstart
+## Usage
 project.clj:
 
 ```clojure
+:dependencies [[org.clojure/clojurescript "0.0-2197"]]
 :profiles {:dev {:dependencies [pudge "FIXME"]}}
 ```
-somewhere in index.html, where index.html is a file in your classpath:
+somewhere in index.html, where index.html is a file in your classpath, note that
+`goog/base.js` and `my-app.js` also have to be in your classpath:
 ```html
 <script src="/goog/base.js"></script>
 <script src="my-app.js"></script>
 {{ connection-script|safe }}
 ```
+In your core.cljs file
+```clojure
+(ns my-project.core
+  (:require [clojure.browser.repl]))
+
 In your REPL:
-```
+```clojure
 user> (require '[pudge.core :refer [start-repl!]])
 user> (start-repl!)
 ;; Then point to localhost:8000
 cljs.user> (js/alert "Hello World")
+```
 ```
 
 ## License
